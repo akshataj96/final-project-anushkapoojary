@@ -112,7 +112,8 @@ class TrojanMap {
   // that satisfies the given dependencies.
   std::vector<std::string> DeliveringTrojan(std::vector<std::string> &location_names,
                                             std::vector<std::vector<std::string>> &dependencies);
-
+  void DeliveringTrojan_Helper(std::string &id, std::unordered_map<std::string, bool> &visited, std::unordered_map<std::string, std::vector<std::string> > &adj, std::vector<std::string> &result);
+  
   // Given a vector of location ids, it should reorder them such that the path
   // that covers all these points has the minimum length.
   // The return value is a pair where the first member is the total_path,
@@ -122,14 +123,15 @@ class TrojanMap {
   std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan(
       std::vector<std::string> &location_ids);
 
-  
   std::pair<double, std::vector<std::vector<std::string>>> TravellingTrojan_2opt(
       std::vector<std::string> &location_ids);
 
   // Given a subgraph specified by a square-shape area, determine whether there is a
   // cycle or not in this subgraph.
   // vector square has 4 elements: left/right/top/bottom bound in order.
+  bool hasCycle( std::string current_id, std::map<std::string, bool> &visited, std::map<std::string, std::vector<std::string> > &preceeding_val, std::string parent_id, std::vector<double> &square);
   bool CycleDetection(std::vector<double> &square);
+
 
   // Given a location id and k, find the k closest points on the map
   std::vector<std::string> FindKClosestPoints(std::string name, int k);
