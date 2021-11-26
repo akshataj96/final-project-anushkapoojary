@@ -856,8 +856,8 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(
  * @param  {std::vector<std::string>} input : a list of locations needs to visit
  * @return {std::pair<double, std::vector<std::vector<std::string>>} : a pair of total distance and the all the progress to get final path
  */
-// std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan(
-//                                     std::vector<std::string> &location_ids) {
+std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan(
+                                    std::vector<std::string> &location_ids) {
 //   std::vector<std::vector<std::string>> a;
 //   std::vector<std::string> visting, vt;
 //   vt = location_ids;
@@ -885,9 +885,8 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(
 //     }
 //     b = std::min(b, cost);
 //   }
-
-//   return std::pair<double, std::vector<std::vector<std::string>>>(b,a);
-// }
+//  return std::pair<double, std::vector<std::vector<std::string>>>(b,a);
+//    }
 
 
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan_2opt(

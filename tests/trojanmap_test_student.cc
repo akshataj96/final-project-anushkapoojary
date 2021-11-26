@@ -134,7 +134,7 @@ TEST(TrojanMapStudentTest, CalculateShortestPath_Dijkstra2) {
   EXPECT_EQ(path, gt);
 }
 
-//step 4: tsp
+//step 4: tsp - HAVE TO WRITE
 
 // STEP 5: Test cycle detection function - MAP NOT WORKING HENCE CANNOT TEST
 // TEST(TrojanMapTest, CycleDetection) {
@@ -195,4 +195,5 @@ TEST(TrojanMapStudentTest, TopologicalSort) {
 
 }
 
-//step 7
+//step 7 - HAVE TO WRITE
+
