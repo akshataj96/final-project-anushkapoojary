@@ -272,9 +272,6 @@ void TrojanMap::PrintMenu() {
       dependencies = {{"Coffee Bean1","Cardinal Gardens"}, {"CVS","Cardinal Gardens"}, {"CVS","Coffee Bean1"}};
     else
       dependencies = ReadDependenciesFromCSVFile(dependencies_filename);
-
-    // std::vector<std::string> location_names = {"Cardinal Gardens", "Coffee Bean1","CVS"};
-    // std::vector<std::vector<std::string>> dependencies = {{"Coffee Bean1","Cardinal Gardens"}, {"CVS","Cardinal Gardens"}, {"CVS","Coffee Bean1"}};
     auto start = std::chrono::high_resolution_clock::now();
     auto result = DeliveringTrojan(location_names, dependencies);
     auto stop = std::chrono::high_resolution_clock::now();
@@ -737,8 +734,7 @@ std::string TrojanMap::GetID(std::string name) {
  * @param  {std::string} location2_name     : goal
  * @return {std::vector<std::string>}       : path
  */
-std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(
-    std::string location1_name, std::string location2_name) {
+std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string location1_name, std::string location2_name) {
   std::string startPointID, endPointID; 
   std::vector<std::string> path;
   std::map<const Node*, bool> visited;
@@ -797,8 +793,7 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(
  * @param  {std::string} location2_name     : goal
  * @return {std::vector<std::string>}       : path
  */
-std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(
-    std::string location1_name, std::string location2_name){
+ std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(std::string location1_name, std::string location2_name){
   std::string st = GetID(location1_name);
   std::string fin = GetID(location2_name);
   std::vector<std::string> path;
@@ -886,7 +881,7 @@ std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTr
 //     b = std::min(b, cost);
 //   }
 //  return std::pair<double, std::vector<std::vector<std::string>>>(b,a);
-//    }
+   }
 
 
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan_2opt(
@@ -1097,15 +1092,40 @@ return res;
  * @param {int} k: number of closest points
  * @return {std::vector<std::string>}: k closest points
  */
+
+bool TrojanMap::SortFunction(const std::pair<std::string,int> &a, const std::pair<std::string,int> &b){
+    return (a.second < b.second);
+    }
+
 std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
-  std::vector<std::string> res;
-  
-  // std::pair<double,double> pos = GetPosition(name); 
+   
+   std::vector<std::string> res;
+   std::vector<std::string> des;
+   std::vector<double> dis;
+   std::vector<std::pair <std::string, double>> des_dis ;
 
-  // //iterating through full place
-  // // for each string id in the map
+   //Get the ID on the name given
+   std::string Source_ID =GetID(name) ;
   
+   //Get the Neighbour ID's based on the location
+   std::vector<std::string> NB_ID = GetNeighborIDs(Source_ID);
+   int n = NB_ID.size();
+    
+   for (int i=0; i<n; i++) {
+    des.push_back(NB_ID[i]);
+    dis.push_back(CalculateDistance(Source_ID,NB_ID[i]));
+   }
 
+   int m = dis.size();
+
+	 // Entering values in vector of pairs
+	 for (int i=0; i<m; i++)
+		des_dis.push_back(std::make_pair(des[i],dis[i]) );
+
+	 //std::sort(des_dis.begin(), des_dis.end(),SortFunction);//unable to see how to fix this error
+	
+	 for (int j=0; j<k; j++)
+    res.push_back(des_dis[j].first);
 
   return res;
 }

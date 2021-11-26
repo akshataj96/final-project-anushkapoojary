@@ -134,6 +134,7 @@ class TrojanMap {
 
 
   // Given a location id and k, find the k closest points on the map
+  bool SortFunction(const std::pair<std::string,int> &a, const std::pair<std::string,int> &b);
   std::vector<std::string> FindKClosestPoints(std::string name, int k);
   
   //----------------------------------------------------- User-defined functions
