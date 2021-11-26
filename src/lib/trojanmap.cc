@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include<iomanip>
 
 #include <algorithm>
 #include <sstream>
@@ -102,8 +103,10 @@ void TrojanMap::PrintMenu() {
     menu = "*************************Results******************************\n";
     std::cout << menu;
     if (results.first != -1) {
-      std::cout << "Latitude: " << results.first
+      std::cout << "Latitude: " <<results.first
                 << " Longitude: " << results.second << std::endl;
+      //std::cout << "Latitude: " << std::setprecision(10)<<results.first
+                //<< " Longitude: " << std::setprecision(10)<< results.second << std::endl;
       PlotPoint(results.first, results.second);
     } else {
       std::cout << "No matched locations." << std::endl;
@@ -673,7 +676,8 @@ double TrojanMap::CalculatePathLength(const std::vector<std::string> &path) {
  * @return {std::vector<std::string>}  : a vector of full names
  */
 std::vector<std::string> TrojanMap::Autocomplete(std::string name){
-  std::vector<std::string> results;
+ std::vector<std::string> results;
+  std::transform(name.begin(), name.end(), name.begin(), ::tolower);
   std::string present_name;
   for (auto pn : data) { 
     present_name = pn.second.name;
@@ -682,7 +686,7 @@ std::vector<std::string> TrojanMap::Autocomplete(std::string name){
         results.push_back(pn.second.name);
       }
   }
-  return results;
+   return results;
 }
 
 /**
@@ -1039,8 +1043,8 @@ void TrojanMap::DeliveringTrojan_Helper(std::string &id, std::unordered_map<std:
 //  */
 bool TrojanMap::CycleDetection(std::vector<double> &square)
 { 
-  std::vector<std::string> location_ids;
   std::map <std::string,bool> visited;
+  std::vector <std::string>location_ids;
   std::map <std::string,std::vector<std::string>> preceeding_val;
   double lat, lon;
   bool cycle_detected = false;
@@ -1069,8 +1073,8 @@ bool TrojanMap::hasCycle( std::string current_id, std::map<std::string, bool> &v
 { 
   visited[current_id] = true;
   bool res = false;
-  Node current_node = data[current_id];
-  for (const auto &n: current_node.neighbors){
+  Node CN = data[current_id];
+  for (const auto &n: CN.neighbors){
     Node NB = data[n];
 	
 	if (!(((NB.lon > square[0]) && (NB.lon < square[1]))&&((NB.lat < square[2]) && (NB.lat > square[3]))))
@@ -1097,10 +1101,10 @@ return res;
 std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
   std::vector<std::string> res;
   
-  std::pair<double,double> pos = GetPosition(name); 
+  // std::pair<double,double> pos = GetPosition(name); 
 
-  //iterating through full place
-  // for each string id in the map
+  // //iterating through full place
+  // // for each string id in the map
   
 
 
