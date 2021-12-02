@@ -17,7 +17,7 @@
 #include <sstream>
 #include <string>
 #include <utility>
-// #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <cmath>
 #include <iostream>
 #include <cctype>
@@ -741,6 +741,8 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string l
   std::map<const Node*, double> DistanceFromSrctoCur;
   std::map<const Node*, std::string> startP; 
   double MAXNUMBER = std::numeric_limits<int>::max();
+  
+  
 
   for (auto it = data.begin(); it != data.end(); it++) {
     DistanceFromSrctoCur[&it->second] = MAXNUMBER;
@@ -748,6 +750,8 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string l
 
   startPointID = GetID(location1_name);
   endPointID = GetID(location2_name);
+  
+  
 
   auto compare = [&DistanceFromSrctoCur](const Node *a, const Node *b) { 
     return DistanceFromSrctoCur[a] > DistanceFromSrctoCur[b];
@@ -853,36 +857,50 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string l
  */
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan(
                                     std::vector<std::string> &location_ids) {
-//   std::vector<std::vector<std::string>> a;
-//   std::vector<std::string> visting, vt;
-//   vt = location_ids;
-//   vt.erase(vt.begin());
-//   std::sort(vt.begin(), vt.end());
-//   double b = DBL_MAX;
+                                    
+ std::pair<double, std::vector<std::vector<std::string>>> results;
+ std::vector<std::string> vis = location_ids;
+ std::vector<std::string> x;
+  double min = INT_MAX;
+  vis.erase(vis.begin());
+  std::sort(vis.begin(), vis.end());
+ /* do{
+    double current = 0;
+    current = CalculatePathLength(vis);
+    if(current < min){
+      min = current;
+      results.first = min;
+      results.second.push_back(vis);
+    }
+  }
+  while(next_permutation(vis.begin(),vis.end()));
+  //std::string source_id = results.second[results.second.size()-1][0];
+  results.second[results.second.size() - 1].push_back(location_ids[0]);	
+  return results;*/
   
-//   while(next_permutation(vt.begin(),vt.end())){
-//     double cost = 0;
-//     std::string k = location_ids.front();
-
-//     for(auto i: vt)
-//     {
-//       cost += CalculateDistance(k,i);
-//       k = i;
-//     } 
-//     cost = cost + CalculateDistance(k,location_ids.front());
-//     if(b>cost)
-//     {
-//       visting.clear();
-//       visting.push_back(location_ids[0]);
-//       for(auto x: vt) visting.push_back(x);
-//       visting.push_back(location_ids[0]);
-//       a.push_back(visting);
-//     }
-//     b = std::min(b, cost);
-//   }
-//  return std::pair<double, std::vector<std::vector<std::string>>>(b,a);
+  while(next_permutation(vis.begin(),vis.end())){
+     double current = 0;
+     std::string pres = location_ids.front();
+     for(auto i:vis){
+       current += CalculateDistance(pres,i);
+       pres=i;
+     }
+     
+     current = current + CalculateDistance(pres,location_ids.front());
+     if(min>current){
+       x.clear();
+       x.push_back(location_ids[0]);
+       for(auto u:vis) x.push_back(u);
+       x.push_back(location_ids[0]);
+       results.second.push_back(x);
+     }
+     min = std::min(min,current);
    }
-
+   
+   results.first = min;
+   return results;
+     
+}                                 
 
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan_2opt(
       std::vector<std::string> &location_ids){
@@ -1097,35 +1115,149 @@ bool TrojanMap::SortFunction(const std::pair<std::string,int> &a, const std::pai
     return (a.second < b.second);
     }
 
+
 std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
    
    std::vector<std::string> res;
    std::vector<std::string> des;
-   std::vector<double> dis;
-   std::vector<std::pair <std::string, double>> des_dis ;
-
-   //Get the ID on the name given
+   
+   std::map<double, std::vector<std::string>> dis_des;
+   
    std::string Source_ID =GetID(name) ;
-  
-   //Get the Neighbour ID's based on the location
-   std::vector<std::string> NB_ID = GetNeighborIDs(Source_ID);
-   int n = NB_ID.size();
-    
-   for (int i=0; i<n; i++) {
-    des.push_back(NB_ID[i]);
-    dis.push_back(CalculateDistance(Source_ID,NB_ID[i]));
+   
+   for(auto pres=data.begin(); pres!=data.end(); pres++){
+   	if(pres->first == Source_ID){
+   		break;
+   	}
+   	dis_des[CalculateDistance(Source_ID,pres->first)].push_back(pres->first);
    }
+   
+   for(auto x=dis_des.begin(); x!=dis_des.end(); x++){
+   	std::cout<<"printttttttt:"<<x->first<<std::endl;
+   	if(res.size()>=k){
+   		break;
+   	}
+   	for(std::string insert_loc: x->second){
+   		if(res.size()>=k){
+   		break;
+   	}
+   		if(data[insert_loc].name != ""){
+   			res.push_back(insert_loc);
+   		}
+  	 }
+   
+    }
+    
+   return res;
+  }
 
-   int m = dis.size();
+  /* //Get the ID on the name given
+   std::string Source_ID =GetID(name) ;
+   const Node* curr_node = &data[Source_ID];
+
+   //Get the Neighbour ID's based on the location
+  // std::vector<std::string> NB_ID = data[Source_ID].neighbors; 
+   
+   for (const std::string &adj_node : curr_node->neighbors) { 
+      Node *dest_node = &data[adj_node]; 
+      std::cout<<"neighbor:"<<adj_node<<std::endl;
+      dis_des[CalculateDistance(Source_ID,dest_node->id)].push_back(adj_node);
+   }
+      
+   //int n = NB_ID.size();
+   //for (int i=0; i<n; i++) {
+    //des.push_back(&data[adj_node]);
+    //dis.push_back(CalculateDistance(Source_ID,dest_node->id));
+    }
+    
+    
+    for(auto x=dis_des.begin(); x!=dis_des.end(); x++){
+    std::cout<<"printttttttt:"<<x<<std::endl;
+   for(auto x=dis_des.begin(); x!=dis_des.end(); x++){
+   	if(res.size()>=k){
+   		break;
+   	}
+   	for(std::string insert_loc: x->second){
+   		if(res.size()>=k){
+   		break;
+   	}
+   		if(data[insert_loc].name != ""){
+   			res.push_back(insert_loc);
+   		}
+  	 }
+   
+    }
+    
+   return res;
+  }*/
+   /*int m = dis.size();
 
 	 // Entering values in vector of pairs
 	 for (int i=0; i<m; i++)
-		des_dis.push_back(std::make_pair(des[i],dis[i]) );
+		des_dis.push_back(std::make_pair(dis[i],des[i]));
 
-	 //std::sort(des_dis.begin(), des_dis.end(),SortFunction);//unable to see how to fix this error
+	 //std::sort(des_dis.begin(), des_dis.end());//unable to see how to fix this error
 	
-	 for (int j=0; j<k; j++)
-    res.push_back(des_dis[j].first);
+  for (int j=0; j<k; j++)
+    res.push_back(des_dis[j].second);*/
+  
+    
 
-  return res;
-}
+  
+
+/*std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string location1_name, std::string location2_name) {
+  std::string startPointID, endPointID; 
+  std::vector<std::string> path;
+  std::map<const Node*, bool> visited;
+  std::map<const Node*, double> DistanceFromSrctoCur;
+  std::map<const Node*, std::string> startP; 
+  double MAXNUMBER = std::numeric_limits<int>::max();
+  
+  
+
+  for (auto it = data.begin(); it != data.end(); it++) {
+    DistanceFromSrctoCur[&it->second] = MAXNUMBER;
+  }
+
+  startPointID = GetID(location1_name);
+  endPointID = GetID(location2_name);
+  
+  
+
+  auto compare = [&DistanceFromSrctoCur](const Node *a, const Node *b) { 
+    return DistanceFromSrctoCur[a] > DistanceFromSrctoCur[b];
+  }; 
+  std::priority_queue<const Node*, std::vector<const Node*>, decltype(compare)> queue(compare);
+  const Node *curr_node = &data[startPointID]; 
+  DistanceFromSrctoCur[curr_node] = 0; 
+  queue.push(curr_node);
+
+  while (!queue.empty()) { 
+    curr_node = queue.top();
+    queue.pop();  
+    if (curr_node->id == endPointID) { 
+      std::string temp = endPointID;
+      while (temp != startPointID) { 
+        path.insert(path.begin(), temp);
+        temp = startP[&data[temp]];
+      }
+      path.insert(path.begin(), startPointID);
+      return path;
+    }
+    visited[curr_node] = true; 
+    for (const std::string &adj_node : curr_node->neighbors) { 
+      Node *dest_node = &data[adj_node]; 
+      if (visited[dest_node]) { 
+        continue; 
+      }
+      double weight = CalculateDistance(curr_node->id, dest_node->id); 
+      if (DistanceFromSrctoCur[dest_node] > DistanceFromSrctoCur[curr_node] + weight) { 
+        startP[dest_node] = curr_node->id;
+        DistanceFromSrctoCur[dest_node] = DistanceFromSrctoCur[curr_node] + weight;
+        queue.push(dest_node); 
+      }
+    }
+  }
+  return path;
+}*/
+
