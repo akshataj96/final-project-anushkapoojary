@@ -524,4 +524,86 @@ Your README file should include two sections:
    ```shell
    $ bazel run --cxxopt='-std=c++17' src/main:main
    ```
+   
+   ## FINAL REPORT
+   
+   ## PART 1 : 
+   ## PART 2 :
+   ## PART 3 : 
+   ## PART 4 : 
+   
+   ## PART 5 : CYCLE DETECTION
+   
+   In this part, we have to see if we able to detect a cycle for a given a couple of nodes.
+   - Created a map ```std::map<std::String,std::vector<std::strinf>> preceeding_val;```
+   - Checking if the nodes lie within the limits of the nodes, if it does exist this will be added to the visted map.
+   - We traverse through the visited map, if it has been visisted we go to the hasCycle function.
+
+  hasCycle function
+  
+  - Traversing through the current node’s neighbor nodes and record the current node as the predecessor.
+  - If the neighbor is in the area + unvisited, hasCycle runs recursively. If the final returns true, the cycle exists.
+  - If the neighbor is in the area + visited and it’s not the parent node, the cycle exists. Otherwise cycle does not exist.
+
+ ## SAMPLE OUTPUTS : CYCLE DETECTION
+ 
+ ## EXAMPLE 1 :
+![image](https://user-images.githubusercontent.com/89548670/144910121-760fefa0-b69b-4741-b21f-fab18d9416e4.png)
+![image](https://user-images.githubusercontent.com/89548670/144910146-8cc77600-51eb-49ae-8d78-c485d867eb15.png)
+ 
+ ## EXAMPLE 2 :
+![image](https://user-images.githubusercontent.com/89548670/144910291-a08d4fbc-53bc-4543-bc34-ff3392d95bab.png)
+![image](https://user-images.githubusercontent.com/89548670/144910309-dc11e0af-007a-4b89-b5f7-f50cb8b70b89.png)
+
+ ## EXAMPLE 3 :
+ ![image](https://user-images.githubusercontent.com/89548670/144910405-67ac3f2d-d002-42f3-b110-8212e0ab9704.png)
+ ![image](https://user-images.githubusercontent.com/89548670/144910425-953c5afd-eda4-4ab9-86f5-6e3e1a564b74.png)
+
+ ## EXAMPLE 4 :
+ ![image](https://user-images.githubusercontent.com/89548670/144910504-7755d9b5-8e49-4d00-aec8-bb952cbd5b09.png)
+ 
+ 
+ TIME COMPLEXITY :
+ 
+ ## PART 6 : TOPOLOGICAL SORT
+ 
+ We have to sort the locations based on the dependencies of each location over the other. If no path is mentioned , default test cases would be applicable.  
+ If path is given, it will add the locations to ``` std::vector<std::string> &locations``` , and dependencies to ``` std::vector<std::vector<std::string>> &dependencies```.  
+ 
+ - Created an unordered map ```std::unordered_map<std::string,std::vector<std::string>> adj;```
+ - Pushed in all the locations and dependecies.
+ - Alotted another unordered map to keep track of the visited locations called visited ```std::unordered_map<std::string,bool> visited; ```
+ - Calling helper function:
+  ```void TrojanMap::DeliveringTrojan_Helper(std::string &id, std::unordered_map<std::string, bool> &visited, std::unordered_map<std::string, std::vector<std::string> > &adj, std::vector<std::string> &result)```
+
+  DeliveringTrojan_Helper function:  
+  - If the node has been visted, helper function is called recursively, and that respective ID is pushed back to result.
+
+ ## SAMPLE OUTPUTS : 
+ 
+ ## EXAMPLE 1 : DEFAULT CASE
+ ![image](https://user-images.githubusercontent.com/89548670/144912111-c1f34c6a-58ea-4b3f-8cc0-956f63fc10c6.png)
+ ![image](https://user-images.githubusercontent.com/89548670/144912119-59833645-dc49-4e5f-8866-1ec71c460e7f.png)
+
+ ## EXAMPLE 2 :
+ ![image](https://user-images.githubusercontent.com/89548670/144912186-1a49a5c0-56dc-40b8-9dc2-1d46a262451d.png)
+ ![image](https://user-images.githubusercontent.com/89548670/144912205-c42b03c0-864f-4212-953c-c1e4badf558d.png)
+
+ ## EXAMPLE 3 :
+ ![image](https://user-images.githubusercontent.com/89548670/144912249-73c07e67-0ebd-4ebf-9b7c-b9f861fffa26.png)
+ ![image](https://user-images.githubusercontent.com/89548670/144912266-41334f63-edd4-4c6a-817a-ed97fe3bf884.png)
+
+ ## EXAMPLE 4:
+ ![image](https://user-images.githubusercontent.com/89548670/144912305-d659aa16-ddf0-4ca1-ab1c-c968786d8c55.png)
+![image](https://user-images.githubusercontent.com/89548670/144912321-c1d0b244-720c-4a78-b57e-d8df5c83f3f7.png)
+
+   
+ ## PART 7 : K CLOSEST POINTS
+ 
+ ## SAMPLE OUTPUTS : 
+ 
+ ## LEARNINGS AND OUTCOMES :
+
+
+
 
