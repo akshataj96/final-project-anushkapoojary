@@ -548,19 +548,19 @@ Your README file should include two sections:
  ## SAMPLE OUTPUTS : CYCLE DETECTION
  
  ## EXAMPLE 1 :
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144910121-760fefa0-b69b-4741-b21f-fab18d9416e4.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144910146-8cc77600-51eb-49ae-8d78-c485d867eb15.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910121-760fefa0-b69b-4741-b21f-fab18d9416e4.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910146-8cc77600-51eb-49ae-8d78-c485d867eb15.png" width="500"/></p>
  
  ## EXAMPLE 2 :
-<p align="center"><img src=https://user-images.githubusercontent.com/89548670/144910291-a08d4fbc-53bc-4543-bc34-ff3392d95bab.png" width="500"/></p>
-<p align="center"><img src=https://user-images.githubusercontent.com/89548670/144910309-dc11e0af-007a-4b89-b5f7-f50cb8b70b89.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910291-a08d4fbc-53bc-4543-bc34-ff3392d95bab.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910309-dc11e0af-007a-4b89-b5f7-f50cb8b70b89.png" width="500"/></p>
 
  ## EXAMPLE 3 :
- <p align="center"><img src=(https://user-images.githubusercontent.com/89548670/144910405-67ac3f2d-d002-42f3-b110-8212e0ab9704.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144910425-953c5afd-eda4-4ab9-86f5-6e3e1a564b74.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910405-67ac3f2d-d002-42f3-b110-8212e0ab9704.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910425-953c5afd-eda4-4ab9-86f5-6e3e1a564b74.png" width="500"/></p>
 
  ## EXAMPLE 4 :
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144910504-7755d9b5-8e49-4d00-aec8-bb952cbd5b09.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910504-7755d9b5-8e49-4d00-aec8-bb952cbd5b09.png" width="500"/></p>
  
  
  TIME COMPLEXITY :
@@ -582,20 +582,20 @@ Your README file should include two sections:
  ## SAMPLE OUTPUTS : TOPOLOGICAL SORT
  
  ## EXAMPLE 1 : DEFAULT CASE
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912111-c1f34c6a-58ea-4b3f-8cc0-956f63fc10c6.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912119-59833645-dc49-4e5f-8866-1ec71c460e7f.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912111-c1f34c6a-58ea-4b3f-8cc0-956f63fc10c6.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912119-59833645-dc49-4e5f-8866-1ec71c460e7f.png" width="500"/></p>
 
  ## EXAMPLE 2 :
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912186-1a49a5c0-56dc-40b8-9dc2-1d46a262451d.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912205-c42b03c0-864f-4212-953c-c1e4badf558d.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912186-1a49a5c0-56dc-40b8-9dc2-1d46a262451d.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912205-c42b03c0-864f-4212-953c-c1e4badf558d.png" width="500"/></p>
 
  ## EXAMPLE 3 :
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912249-73c07e67-0ebd-4ebf-9b7c-b9f861fffa26.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912266-41334f63-edd4-4c6a-817a-ed97fe3bf884.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912249-73c07e67-0ebd-4ebf-9b7c-b9f861fffa26.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912266-41334f63-edd4-4c6a-817a-ed97fe3bf884.png" width="500"/></p>
 
  ## EXAMPLE 4:
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912305-d659aa16-ddf0-4ca1-ab1c-c968786d8c55.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144912321-c1d0b244-720c-4a78-b57e-d8df5c83f3f7.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912305-d659aa16-ddf0-4ca1-ab1c-c968786d8c55.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912321-c1d0b244-720c-4a78-b57e-d8df5c83f3f7.png" width="500"/></p>
 
  TIME COMPLEXITY :
  
@@ -612,19 +612,19 @@ Your README file should include two sections:
  ## EXAMPLE 1 :
   
  <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913114-32f9c2cb-a1bb-44a6-a43a-401ef525345a.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144913120-fb462c46-6df6-476f-ac01-ad8280960700.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913120-fb462c46-6df6-476f-ac01-ad8280960700.png" width="500"/></p>
 
  ## EXAMPLE 2 :
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144913137-fd4d4275-be20-47e9-af12-5a6d9de833de.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144913142-e8b52b8a-2f7b-47ec-803d-ee2871c2af46.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913137-fd4d4275-be20-47e9-af12-5a6d9de833de.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913142-e8b52b8a-2f7b-47ec-803d-ee2871c2af46.png" width="500"/></p>
 
  ## EXAMPLE 3:
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144913148-8f694b0e-5009-43ff-a7c3-5fe545548182.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144913156-36c372a3-b9de-4f3a-8628-6a636d68641b.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913148-8f694b0e-5009-43ff-a7c3-5fe545548182.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913156-36c372a3-b9de-4f3a-8628-6a636d68641b.png" width="500"/></p>
  
  ## EXAMPLE 4:
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144913502-9a02145e-a3f2-4a09-bdf3-c9a2805a4192.png" width="500"/></p>
- <p align="center"><img src=https://user-images.githubusercontent.com/89548670/144913545-d4961ec2-fa4f-4068-b3c6-8aedca2f0c71.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913502-9a02145e-a3f2-4a09-bdf3-c9a2805a4192.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913545-d4961ec2-fa4f-4068-b3c6-8aedca2f0c71.png" width="500"/></p>
 
  
  TIME COMPLEXITY :
