@@ -19,6 +19,7 @@
 //     }
 //   }
 //   EXPECT_EQ(success, gt1.size());
+// }
 
 //   // Test the lower case
 //   names = m.Autocomplete("ch");
@@ -58,7 +59,7 @@
 // }
 
 // Test FindPosition function
-/*TEST(TrojanMapTest, FindPosition) {
+TEST(TrojanMapTest, FindPosition) {
   TrojanMap m;
   m.CreateGraphFromCSVFile(); 
   // Test ChickfilA
@@ -78,7 +79,7 @@
   std::pair<double, double> gt4(-1, -1);
   EXPECT_EQ(position, gt4);
 }
-*/
+
 // // Test CalculateShortestPath_Dijkstra function 1
 /* TEST(TrojanMapTest, CalculateShortestPath_Dijkstra) {
    TrojanMap m;
@@ -231,12 +232,12 @@
 
 
 // Test K closest points
-TEST(TrojanMapTest, FindKClosestPoints) {
-  TrojanMap m;
-  m.CreateGraphFromCSVFile();
-  auto result = m.FindKClosestPoints("Ralphs",10);
-  std::vector<std::string> gt{
-  "3724125231", "358791507", "7158047272", "358828789", "358794109",
-  "5757277355", "7204975815", "6510335101", "6807374558", "6510335102"};
-  EXPECT_EQ(result, gt);
-}
+// TEST(TrojanMapTest, FindKClosestPoints) {
+//   TrojanMap m;
+//   m.CreateGraphFromCSVFile();
+//   auto result = m.FindKClosestPoints("Ralphs",10);
+//   std::vector<std::string> gt{
+//   "3724125231", "358791507", "7158047272", "358828789", "358794109",
+//   "5757277355", "7204975815", "6510335101", "6807374558", "6510335102"};
+//   EXPECT_EQ(result, gt);
+// }

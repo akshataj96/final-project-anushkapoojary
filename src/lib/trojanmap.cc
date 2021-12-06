@@ -133,6 +133,7 @@ void TrojanMap::PrintMenu() {
     std::string input2;
     getline(std::cin, input2);
     auto start = std::chrono::high_resolution_clock::now();
+    //auto results = CalculateShortestPath_Bellman_Ford(input1, input2);
     auto results = CalculateShortestPath_Dijkstra(input1, input2);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
@@ -176,8 +177,8 @@ void TrojanMap::PrintMenu() {
     PlotPoints(locations);
     std::cout << "Calculating ..." << std::endl;
     auto start = std::chrono::high_resolution_clock::now();
-    //auto results = TravellingTrojan(locations);
-    auto results = TravellingTrojan_2opt(locations);
+    auto results = TravellingTrojan(locations);
+    //auto results = TravellingTrojan_2opt(locations);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     CreateAnimation(results.second);
@@ -735,55 +736,49 @@ std::string TrojanMap::GetID(std::string name) {
  * @return {std::vector<std::string>}       : path
  */
 std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string location1_name, std::string location2_name) {
-  std::string startPointID, endPointID; 
+  std::string starting_location, finishing_location; 
   std::vector<std::string> path;
+  std::map<const Node*, double> distance_start_to_present;
+  std::map<const Node*, std::string> start; 
   std::map<const Node*, bool> visited;
-  std::map<const Node*, double> DistanceFromSrctoCur;
-  std::map<const Node*, std::string> startP; 
-  double MAXNUMBER = std::numeric_limits<int>::max();
   
-  
-
   for (auto it = data.begin(); it != data.end(); it++) {
-    DistanceFromSrctoCur[&it->second] = MAXNUMBER;
+    distance_start_to_present[&it->second] = std::numeric_limits<int>::max();
   }
 
-  startPointID = GetID(location1_name);
-  endPointID = GetID(location2_name);
+  starting_location = GetID(location1_name);
+  finishing_location = GetID(location2_name);
   
-  
-
-  auto compare = [&DistanceFromSrctoCur](const Node *a, const Node *b) { 
-    return DistanceFromSrctoCur[a] > DistanceFromSrctoCur[b];
+  auto relative_distance_from_start = [&distance_start_to_present](const Node *a, const Node *b) { 
+    return distance_start_to_present[a] > distance_start_to_present[b];
   }; 
-  std::priority_queue<const Node*, std::vector<const Node*>, decltype(compare)> queue(compare);
-  const Node *curr_node = &data[startPointID]; 
-  DistanceFromSrctoCur[curr_node] = 0; 
-  queue.push(curr_node);
-
-  while (!queue.empty()) { 
-    curr_node = queue.top();
-    queue.pop();  
-    if (curr_node->id == endPointID) { 
-      std::string temp = endPointID;
-      while (temp != startPointID) { 
-        path.insert(path.begin(), temp);
-        temp = startP[&data[temp]];
+  std::priority_queue<const Node*, std::vector<const Node*>, decltype(relative_distance_from_start)> distances(relative_distance_from_start);
+  const Node *curr_node = &data[starting_location]; 
+  distance_start_to_present[curr_node] = 0; 
+  distances.push(curr_node);
+  while (!distances.empty()) { 
+    curr_node = distances.top();
+    distances.pop();  
+    if (curr_node->id == finishing_location) { 
+      std::string loc = finishing_location;
+      while (loc != starting_location) { 
+        path.insert(path.begin(), loc);
+        loc = start[&data[loc]];
       }
-      path.insert(path.begin(), startPointID);
+      path.insert(path.begin(), starting_location);
       return path;
     }
     visited[curr_node] = true; 
-    for (const std::string &adj_node : curr_node->neighbors) { 
-      Node *dest_node = &data[adj_node]; 
+    for (const std::string &neighbouring_node : curr_node->neighbors) { 
+      Node *dest_node = &data[neighbouring_node]; 
       if (visited[dest_node]) { 
         continue; 
       }
       double weight = CalculateDistance(curr_node->id, dest_node->id); 
-      if (DistanceFromSrctoCur[dest_node] > DistanceFromSrctoCur[curr_node] + weight) { 
-        startP[dest_node] = curr_node->id;
-        DistanceFromSrctoCur[dest_node] = DistanceFromSrctoCur[curr_node] + weight;
-        queue.push(dest_node); 
+      if (distance_start_to_present[dest_node] > distance_start_to_present[curr_node] + weight) { 
+        start[dest_node] = curr_node->id;
+        distance_start_to_present[dest_node] = distance_start_to_present[curr_node] + weight;
+        distances.push(dest_node); 
       }
     }
   }
@@ -798,53 +793,41 @@ std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string l
  * @return {std::vector<std::string>}       : path
  */
  std::vector<std::string> TrojanMap::CalculateShortestPath_Bellman_Ford(std::string location1_name, std::string location2_name){
-  std::string st = GetID(location1_name);
-  std::string fin = GetID(location2_name);
+  std::string start = GetID(location1_name);
+  std::string end = GetID(location2_name);
   std::vector<std::string> path;
+  std::map<std::string , std::string> travesral_route;
   std::map<std::string , double> weight;
-  std::map<std::string , std::string> mainpath;
-  std::map<std::string , std::vector<std::string>> adjmatrix;
+  std::map<std::string , std::vector<std::string>> neighbouring_loc;
 
-  Node s = data[st];
-  Node final = data[fin];
-  if(location1_name.length()==0 || location2_name.length()==0)
-  {
+  Node start_node = data[start];
+  Node end_node = data[end];
+  if(location1_name.length()==0 || location2_name.length()==0){
     return {};
   }
-
-  for(auto node: data){
-    adjmatrix[node.second.id] = node.second.neighbors;
-    weight[node.second.id] = DBL_MAX;    
+  for(auto loc: data){
+    neighbouring_loc[loc.second.id] = loc.second.neighbors;
+    weight[loc.second.id] = DBL_MAX;    
   }
-
-  weight[s.id]=0;
-  for(unsigned i=0; i < (data.size() - 1); i++)
-  {
-    for(auto n: data) // iterated through every 
-    {
-      for(auto a: adjmatrix[n.second.id])
-      {
-        if((weight[n.second.id] + CalculateDistance(n.second.id , a)) < weight[a])
-        {
-          weight[a] = weight[n.second.id] + CalculateDistance(n.second.id , a);
-          mainpath[a] = n.second.id;
+  weight[start_node.id]=0;
+  for(auto i=0; i < (data.size() - 1); i++){
+    for(auto present_data: data) {
+      for(auto present_neighbour: neighbouring_loc[present_data.second.id]){
+        if((weight[present_data.second.id] + CalculateDistance(present_data.second.id , present_neighbour)) < weight[present_neighbour]){
+          weight[present_neighbour] = weight[present_data.second.id] + CalculateDistance(present_data.second.id , present_neighbour);
+          travesral_route[present_neighbour] = present_data.second.id;
         }
       }
     }
   }
-
-  std::string t = mainpath[final.id];
-  path.push_back(final.id);
-
-  while(t!=s.id)
-  {
-    path.push_back(t);
-    t = mainpath[t];
+  std::string temp = travesral_route[end_node.id];
+  path.push_back(end_node.id);
+  while(temp!=start_node.id){
+    path.push_back(temp);
+    temp = travesral_route[temp];
   }
-  path.push_back(s.id);
-
+  path.push_back(start_node.id);
   std::reverse(path.begin() , path.end());
-
   return path;
 }
 
@@ -876,16 +859,14 @@ std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTr
   while(next_permutation(vis.begin(),vis.end()));
   //std::string source_id = results.second[results.second.size()-1][0];
   results.second[results.second.size() - 1].push_back(location_ids[0]);	
-  return results;*/
-  
+  return results;*/ 
   while(next_permutation(vis.begin(),vis.end())){
      double current = 0;
      std::string pres = location_ids.front();
      for(auto i:vis){
-       current += CalculateDistance(pres,i);
+       current = current + CalculateDistance(pres,i);
        pres=i;
      }
-     
      current = current + CalculateDistance(pres,location_ids.front());
      if(min>current){
        x.clear();
@@ -896,10 +877,8 @@ std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTr
      }
      min = std::min(min,current);
    }
-   
    results.first = min;
    return results;
-     
 }                                 
 
 std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTrojan_2opt(
@@ -1204,60 +1183,3 @@ std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) 
     
 
   
-
-/*std::vector<std::string> TrojanMap::CalculateShortestPath_Dijkstra(std::string location1_name, std::string location2_name) {
-  std::string startPointID, endPointID; 
-  std::vector<std::string> path;
-  std::map<const Node*, bool> visited;
-  std::map<const Node*, double> DistanceFromSrctoCur;
-  std::map<const Node*, std::string> startP; 
-  double MAXNUMBER = std::numeric_limits<int>::max();
-  
-  
-
-  for (auto it = data.begin(); it != data.end(); it++) {
-    DistanceFromSrctoCur[&it->second] = MAXNUMBER;
-  }
-
-  startPointID = GetID(location1_name);
-  endPointID = GetID(location2_name);
-  
-  
-
-  auto compare = [&DistanceFromSrctoCur](const Node *a, const Node *b) { 
-    return DistanceFromSrctoCur[a] > DistanceFromSrctoCur[b];
-  }; 
-  std::priority_queue<const Node*, std::vector<const Node*>, decltype(compare)> queue(compare);
-  const Node *curr_node = &data[startPointID]; 
-  DistanceFromSrctoCur[curr_node] = 0; 
-  queue.push(curr_node);
-
-  while (!queue.empty()) { 
-    curr_node = queue.top();
-    queue.pop();  
-    if (curr_node->id == endPointID) { 
-      std::string temp = endPointID;
-      while (temp != startPointID) { 
-        path.insert(path.begin(), temp);
-        temp = startP[&data[temp]];
-      }
-      path.insert(path.begin(), startPointID);
-      return path;
-    }
-    visited[curr_node] = true; 
-    for (const std::string &adj_node : curr_node->neighbors) { 
-      Node *dest_node = &data[adj_node]; 
-      if (visited[dest_node]) { 
-        continue; 
-      }
-      double weight = CalculateDistance(curr_node->id, dest_node->id); 
-      if (DistanceFromSrctoCur[dest_node] > DistanceFromSrctoCur[curr_node] + weight) { 
-        startP[dest_node] = curr_node->id;
-        DistanceFromSrctoCur[dest_node] = DistanceFromSrctoCur[curr_node] + weight;
-        queue.push(dest_node); 
-      }
-    }
-  }
-  return path;
-}*/
-
