@@ -548,6 +548,7 @@ Your README file should include two sections:
  ## SAMPLE OUTPUTS : CYCLE DETECTION
  
  ## EXAMPLE 1 :
+ <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910121-760fefa0-b69b-4741-b21f-fab18d9416e4.png" width="500"/></p>
 ![image](https://user-images.githubusercontent.com/89548670/144910121-760fefa0-b69b-4741-b21f-fab18d9416e4.png)
 ![image](https://user-images.githubusercontent.com/89548670/144910146-8cc77600-51eb-49ae-8d78-c485d867eb15.png)
  
