@@ -579,7 +579,7 @@ Your README file should include two sections:
   DeliveringTrojan_Helper function:  
   - If the node has been visted, helper function is called recursively, and that respective ID is pushed back to result.
 
- ## SAMPLE OUTPUTS : 
+ ## SAMPLE OUTPUTS : TOPOLOGICAL SORT
  
  ## EXAMPLE 1 : DEFAULT CASE
  ![image](https://user-images.githubusercontent.com/89548670/144912111-c1f34c6a-58ea-4b3f-8cc0-956f63fc10c6.png)
@@ -597,11 +597,37 @@ Your README file should include two sections:
  ![image](https://user-images.githubusercontent.com/89548670/144912305-d659aa16-ddf0-4ca1-ab1c-c968786d8c55.png)
 ![image](https://user-images.githubusercontent.com/89548670/144912321-c1d0b244-720c-4a78-b57e-d8df5c83f3f7.png)
 
-   
+ TIME COMPLEXITY :
+ 
  ## PART 7 : K CLOSEST POINTS
  
- ## SAMPLE OUTPUTS : 
+ ## SAMPLE OUTPUTS : K CLOSEST POINTS
  
+ We make use of a priority queue here to find the closest points to a given location.
+ - Obtain the ID of the location name.
+ - If the ID returns no name or if k is zero, if returns and empty vector.
+ - If any of the closer nodes found have no names, we want to skip that.
+ - We calculate the distance between each node and the source node using the CalculateDistance
+ 
+ ## EXAMPLE 1 :
+ ![image](https://user-images.githubusercontent.com/89548670/144913114-32f9c2cb-a1bb-44a6-a43a-401ef525345a.png)
+ ![image](https://user-images.githubusercontent.com/89548670/144913120-fb462c46-6df6-476f-ac01-ad8280960700.png)
+
+ ## EXAMPLE 2 :
+ ![image](https://user-images.githubusercontent.com/89548670/144913137-fd4d4275-be20-47e9-af12-5a6d9de833de.png)
+![image](https://user-images.githubusercontent.com/89548670/144913142-e8b52b8a-2f7b-47ec-803d-ee2871c2af46.png)
+
+ ## EXAMPLE 3:
+ ![image](https://user-images.githubusercontent.com/89548670/144913148-8f694b0e-5009-43ff-a7c3-5fe545548182.png)
+ ![image](https://user-images.githubusercontent.com/89548670/144913156-36c372a3-b9de-4f3a-8628-6a636d68641b.png)
+ 
+ ## EXAMPLE 4:
+ ![image](https://user-images.githubusercontent.com/89548670/144913502-9a02145e-a3f2-4a09-bdf3-c9a2805a4192.png)
+ ![image](https://user-images.githubusercontent.com/89548670/144913545-d4961ec2-fa4f-4068-b3c6-8aedca2f0c71.png)
+
+ 
+ TIME COMPLEXITY :
+
  ## LEARNINGS AND OUTCOMES :
 
 
