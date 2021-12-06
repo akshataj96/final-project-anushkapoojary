@@ -530,7 +530,40 @@ Your README file should include two sections:
    ## PART 1 : 
    ## PART 2 :
    ## PART 3 : 
-   ## PART 4 : 
+   
+   
+   ## PART 4 : TRAVELING TROJAN
+   
+  TRAVELING TROJAN : BRUTE FORCE APPROACH 
+  
+  ## EXAMPLE 1:
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935261-976366f3-de95-4a11-8fdf-1f3ba6df896d.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935301-33fd6e73-827b-4e0e-95d0-2061b0dba1bc.png" width="500"/></p>
+  
+  ## EXAMPLE 2:
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935332-ae5967d7-cff3-4593-83fc-7e8fe07e2e7d.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935350-0b381ebc-8251-478e-9e04-a5b9413d7c97.png" width="500"/></p>
+  
+  ## EXAMPLE 3:
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913545-d4961ec2-fa4f-4068-b3c6-8aedca2f0c71.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913545-d4961ec2-fa4f-4068-b3c6-8aedca2f0c71.png" width="500"/></p>
+  
+  TRAVELING TROJAN : 2 - OPT APPROACH 
+  
+  ## EXAMPLE 1:
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935261-976366f3-de95-4a11-8fdf-1f3ba6df896d.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935301-33fd6e73-827b-4e0e-95d0-2061b0dba1bc.png" width="500"/></p>
+  
+  ## EXAMPLE 2:
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935332-ae5967d7-cff3-4593-83fc-7e8fe07e2e7d.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935350-0b381ebc-8251-478e-9e04-a5b9413d7c97.png" width="500"/></p>
+  
+  ## EXAMPLE 3:
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144938545-d43bd77e-9526-4864-b981-2d31139b862e.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144938476-f8c6688b-8522-45a8-bf77-5fdc3ca0df5a.png" width="500"/></p>
+   
+   
+   CONCLUSION:
    
    ## PART 5 : CYCLE DETECTION
    
