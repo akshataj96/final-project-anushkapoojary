@@ -610,7 +610,8 @@ Your README file should include two sections:
  - We calculate the distance between each node and the source node using the CalculateDistance
  
  ## EXAMPLE 1 :
- ![image](https://user-images.githubusercontent.com/89548670/144913114-32f9c2cb-a1bb-44a6-a43a-401ef525345a.png)
+  
+ <img src="https://user-images.githubusercontent.com/89548670/144913114-32f9c2cb-a1bb-44a6-a43a-401ef525345a.png"width="100" height="100">
  ![image](https://user-images.githubusercontent.com/89548670/144913120-fb462c46-6df6-476f-ac01-ad8280960700.png)
 
  ## EXAMPLE 2 :
