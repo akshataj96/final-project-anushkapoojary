@@ -1133,77 +1133,30 @@ std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) 
    return res;
   }
 
-  /* //Get the ID on the name given
-   std::string Source_ID =GetID(name) ;
-   const Node* curr_node = &data[Source_ID];
 
-   //Get the Neighbour ID's based on the location
-  // std::vector<std::string> NB_ID = data[Source_ID].neighbors; 
-   
-   for (const std::string &adj_node : curr_node->neighbors) { 
-      Node *dest_node = &data[adj_node]; 
-      std::cout<<"neighbor:"<<adj_node<<std::endl;
-      dis_des[CalculateDistance(Source_ID,dest_node->id)].push_back(adj_node);
-   }
-      
-   //int n = NB_ID.size();
-   //for (int i=0; i<n; i++) {
-    //des.push_back(&data[adj_node]);
-    //dis.push_back(CalculateDistance(Source_ID,dest_node->id));
-    }
-    
-    
-    for(auto x=dis_des.begin(); x!=dis_des.end(); x++){
-    std::cout<<"printttttttt:"<<x<<std::endl;
-   for(auto x=dis_des.begin(); x!=dis_des.end(); x++){
-   	if(res.size()>=k){
-   		break;
-   	}
-   	for(std::string insert_loc: x->second){
-   		if(res.size()>=k){
-   		break;
-   	}
-   		if(data[insert_loc].name != ""){
-   			res.push_back(insert_loc);
-   		}
-  	 }
-   
-    }
-    
-   return res;
-  }*/
-   /*int m = dis.size();
-
-	 // Entering values in vector of pairs
-	 for (int i=0; i<m; i++)
-		des_dis.push_back(std::make_pair(dis[i],des[i]));
-
-	 //std::sort(des_dis.begin(), des_dis.end());//unable to see how to fix this error
-	
-  for (int j=0; j<k; j++)
-    res.push_back(des_dis[j].second);*/
-  
-    
 std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
    
    std::vector<std::string> res;
-   std::string Source_ID =GetID(name) ;
+   double distance_val;
    std::priority_queue<std::pair <double,std::string>> des_dis ;
 
- 
-
-  if(Source_ID=="" ||k<=0)
+  if(GetID(name)=="" ||k<=0)
    return res;
   
   //We want to skip any nodes that do not have names, hence the continue function
-  for(auto i=data.begin();i!=data.end();i++){
-    if((*i).first ==Source_ID ||(*i).second.name.size()==0) continue;
-
+  for(auto i=data.begin();i!=data.end();i++){ 
+    distance_val= CalculateDistance((*i).first,GetID(name));
+	  
+    if((*i).first ==GetID(name){
+	    if((*i).second.name.size()==0))
+		 continue;
+    
     if (des_dis.size()<k)
-     des_dis.push(std::make_pair(CalculateDistance((*i).first,Source_ID),(*i).first));
+     
+     des_dis.push(std::make_pair(CalculateDistance((*i).first,GetID(name)),(*i).first));
      else{
-       diss= CalculateDistance(Source_ID,(*i).first);
-       if(diss<des_dis.top().first){
+       
+       while(distance_val<des_dis.top().first){
          des_dis.push(std::make_pair(diss,(*i).first));
          des_dis.pop();
          
