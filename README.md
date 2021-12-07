@@ -527,7 +527,16 @@ Your README file should include two sections:
    
    ## FINAL REPORT
    
-   ## PART 1 : 
+   ## PART 1 : AutoComplete
+- Return a list of possible locations with partial name as prefix
+- Input: Partial name prefix of a location on the map
+- Output: List of locations matching the prefix
+- EXAMPLE 1:
+![image](https://user-images.githubusercontent.com/90008551/144950239-e6745639-534c-4968-ab3d-973ac81df5d3.png)
+
+  EXAMPLE 2:
+  ![image](https://user-images.githubusercontent.com/90008551/144950312-7f3a92af-7393-4570-abf3-6f7d08925761.png)
+- Time Complexity: O(N)
    ## PART 2 :
    ## PART 3 : 
    
