@@ -638,11 +638,11 @@ We observe that Dijkstra implementation is way faster than Bellman-Ford.
    CONCLUSION:
    | N |	Time taken ( Brute)|	Time taken ( 2 -opt)|
    |---|----------------------|----------------------|
-|3|	140|	106|
-|5|	332 |	685|
-|7|	15354|	4919|
-|8	|70269|	11214|
-|10|11905422|	50026|
+   |3  |	     140            |	       106           |
+   |5  |	     332            |	       685           |
+   |7  |	   15354            |	      4919           |
+   |8  |     70269            |	      11214          |
+   |10 |    11905422          |	      50026          |
 
 From N values above 10 , the Brute Force takes a much longer while to compile and run . Thus for smaller values of N, Brute Approach works, but beyond that 2-opt works best.
 
