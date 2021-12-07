@@ -697,7 +697,6 @@ Clearly as the locations increase, the time taken to compute increases as well.
 
 As we can see, there is an increase in the time with respect to k increasing.
 
- ## LEARNINGS AND OUTCOMES :
 
 
 
