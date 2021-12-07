@@ -1184,5 +1184,37 @@ std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) 
     res.push_back(des_dis[j].second);*/
   
     
+std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
+   
+   std::vector<std::string> res;
+   std::string Source_ID =GetID(name) ;
+   std::priority_queue<std::pair <double,std::string>> des_dis ;
 
+ 
+
+  if(Source_ID=="" ||k<=0)
+   return res;
+  
+  //We want to skip any nodes that do not have names, hence the continue function
+  for(auto i=data.begin();i!=data.end();i++){
+    if((*i).first ==Source_ID ||(*i).second.name.size()==0) continue;
+
+    if (des_dis.size()<k)
+     des_dis.push(std::make_pair(CalculateDistance((*i).first,Source_ID),(*i).first));
+     else{
+       diss= CalculateDistance(Source_ID,(*i).first);
+       if(diss<des_dis.top().first){
+         des_dis.push(std::make_pair(diss,(*i).first));
+         des_dis.pop();
+         
+       }
+     }
+  }
+  while(!des_dis.empty()){
+  res.push_back(des_dis.top().second);
+  des_dis.pop();}
+
+  std::reverse(res.begin(),res.end());
+  return res;
+}
   
