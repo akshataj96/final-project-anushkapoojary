@@ -850,19 +850,6 @@ std::pair<double, std::vector<std::vector<std::string>>> TrojanMap::TravellingTr
   double min = INT_MAX;
   vis.erase(vis.begin());
   std::sort(vis.begin(), vis.end());
- /* do{
-    double current = 0;
-    current = CalculatePathLength(vis);
-    if(current < min){
-      min = current;
-      results.first = min;
-      results.second.push_back(vis);
-    }
-  }
-  while(next_permutation(vis.begin(),vis.end()));
-  //std::string source_id = results.second[results.second.size()-1][0];
-  results.second[results.second.size() - 1].push_back(location_ids[0]);	
-  return results;*/ 
   while(next_permutation(vis.begin(),vis.end())){
      double current = 0;
      std::string pres = location_ids.front();
@@ -994,20 +981,18 @@ std::vector<std::string> TrojanMap::DeliveringTrojan(std::vector<std::string> &l
   std::vector<std::string> result;
   std::vector<std::string> temp;
   std::unordered_map<std::string,bool> visited;
-  std::unordered_map<std::string, std::vector<std::string>> adj;
+  std::unordered_map<std::string, std::vector<std::string>> del_trojan;
 
-  for(auto &loc: locations)
-    adj[loc]=temp;
+    for(auto &loc: locations)
+    {del_trojan[loc]=temp;
+    visited[loc]=false;}
+    
+    for(auto &dep:dependencies)
+    del_trojan[dep[0]].push_back(dep[1]);
   
-  for(auto &dep:dependencies)
-    adj[dep[0]].push_back(dep[1]);
-  
-  for(auto &n: locations)
-    visited[n]=false;
-
-  for(auto &i: locations){
-    if(visited[i]==false)
-      DeliveringTrojan_Helper(i, visited, adj, result);
+   for(auto &L: locations){
+    if(visited[L]==false)
+      DeliveringTrojan_Helper(L, visited, del_trojan, result);
   }
   std::reverse(result.begin(), result.end());
   return result;  
@@ -1092,40 +1077,51 @@ return res;
 //  * @param {int} k: number of closest points
 //  * @return {std::vector<std::string>}: k closest points
 //  */
-// std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
+std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
    
-//    std::vector<std::string> res;
-//    double distance_val;
-//    std::priority_queue<std::pair <double,std::string>> des_dis ;
+   std::vector<std::string> res;
+   double dis_val;
+   std::priority_queue<std::pair<double,std::string>> des_dis ;
 
-//   if(GetID(name)=="" ||k<=0)
-//    return res;
+  // Get the ID from the location:
+  auto Source_ID = GetID(name);
   
-//   //We want to skip any nodes that do not have names, hence the continue function
-//   for(auto i=data.begin();i!=data.end();i++){ 
-//     distance_val= CalculateDistance((*i).first,GetID(name));
-	  
-//     if((*i).first ==GetID(name){
-// 	    if((*i).second.name.size()==0))
-// 		 continue;
+
+ //If there is no ID to the name we return an empty vector
+   if(k<=0)
+   return res;
+  //If k is less than 1, we return an empty vector
+  if(Source_ID=="")
+   return res;
+ 
+  
+  for(auto i=data.begin();i!=data.end();i++){
+    auto string_id = (*i).first;
+    //If there is no name to the neighbouring node, skip
+     if((*i).second.name.size()==0)
+		   continue;
+    //If the node is same as location, skip
+     if (string_id == Source_ID)
+       continue;
     
-//     if (des_dis.size()<k)
-     
-//      des_dis.push(std::make_pair(CalculateDistance((*i).first,GetID(name)),(*i).first));
-//      else{
-       
-//        while(distance_val<des_dis.top().first){
-//          des_dis.push(std::make_pair(diss,(*i).first));
-//          des_dis.pop();
-         
-//        }
-//      }
-//   }
-//   while(!des_dis.empty()){
-//   res.push_back(des_dis.top().second);
-//   des_dis.pop();}
+    
+    dis_val = CalculateDistance(string_id ,Source_ID);
+    if (des_dis.size()>=k){   
+       if(dis_val<des_dis.top().first){
+         des_dis.push(std::make_pair(dis_val,string_id ));
+         des_dis.pop();  
+       } 
+     }
+     else
+          des_dis.push(std::make_pair(dis_val,string_id ));
+  }
 
-//   std::reverse(res.begin(),res.end());
-//   return res;
-// }
-  
+  do{
+  res.push_back(des_dis.top().second);
+  des_dis.pop();} while(!des_dis.empty());
+
+  std::reverse(res.begin(),res.end());
+  return res;
+}
+
+

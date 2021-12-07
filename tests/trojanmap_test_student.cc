@@ -190,26 +190,26 @@ TEST(TrojanMapTest, TSP3) {
   EXPECT_EQ(flag, true);
 }
 
-// STEP 5: Test cycle detection function - MAP NOT WORKING HENCE CANNOT TEST
+// //STEP 5: Test cycle detection function - MAP NOT WORKING HENCE CANNOT TEST - WORKS PERFECTLY WITHOUT PLOT EDGES
 // TEST(TrojanMapTest, CycleDetection) {
 //   TrojanMap m;
 //   m.CreateGraphFromCSVFile();
-//   // Test case 1
+//   Test case 1
 //   std::vector<double> square1 = {-118.230,-118.26011, 34.02511233, 34.01962235};
 //   bool result1 = m.CycleDetection(square1);
 //   EXPECT_EQ(result1, false);
 
-//   // Test case 2
+//   Test case 2
 //   std::vector<double> square2 = {118.243333, -118.263322, 34.0113222, 34.019474};
 //   bool result2 = m.CycleDetection(square2);
 //   EXPECT_EQ(result2, false);
 
-//     // Test case 3
+//     Test case 3
 //   std::vector<double> square3 = {-118.297, -118.263, 34.03, 34.01};
 //   bool result3 = m.CycleDetection(square3);
 //   EXPECT_EQ(result3, true);
 
-//     // Test case 4
+//     Test case 4
 //   std::vector<double> square4 = {-118.28, -118.265, 34.031, 34.012};
 //   bool result4 = m.CycleDetection(square4);
 //   EXPECT_EQ(result4, true);
