@@ -533,10 +533,10 @@ Your README file should include two sections:
 - Output: List of locations matching the prefix
 - Time Complexity: O(N)
 - EXAMPLE 1:
-![image](https://user-images.githubusercontent.com/90008551/144950239-e6745639-534c-4968-ab3d-973ac81df5d3.png)
+![image](https://user-images.githubusercontent.com/90008551/144950239-e6745639-534c-4968-ab3d-973ac81df5d3.png" width="500"/></p>
 
   EXAMPLE 2:
-  ![image](https://user-images.githubusercontent.com/90008551/144950312-7f3a92af-7393-4570-abf3-6f7d08925761.png)
+  ![image](https://user-images.githubusercontent.com/90008551/144950312-7f3a92af-7393-4570-abf3-6f7d08925761.png)" width="500"/></p>
 
    ## PART 2 : GetPosition
 - Returns the coordinates of a location in the map
@@ -545,12 +545,12 @@ Your README file should include two sections:
           Plots the location on the map
 - Time Complexity: O(N)
 EXAMPLE 1: 
-![image](https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png)
-![image](https://user-images.githubusercontent.com/90008551/144950586-9c7e33d1-4b8e-48a1-b681-6c75b9255d92.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950586-9c7e33d1-4b8e-48a1-b681-6c75b9255d92.png" width="500"/></p>
 
 EXAMPLE 2:
-![image](https://user-images.githubusercontent.com/90008551/144950683-daaa76c3-bf1f-4ccc-9fff-d3f2575179d7.png)
-![image](https://user-images.githubusercontent.com/90008551/144950697-825db12d-03c2-4e92-a8ce-84edff3eeafc.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950683-daaa76c3-bf1f-4ccc-9fff-d3f2575179d7.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950697-825db12d-03c2-4e92-a8ce-84edff3eeafc.png" width="500"/></p>
 
    ## PART 3 : ShortestPath - Dijkstra
 - Returns the shortest path between two locations given their names.
@@ -559,20 +559,19 @@ EXAMPLE 2:
 - Output: List of locations in the shortest path and the distance of the shortest path
 - Time Complexity: O(NlogN)
   EXAMPLE 1: 
-  ![image](https://user-images.githubusercontent.com/90008551/144952312-b846df92-096c-4571-9496-764ef992277a.png)
-  ![image](https://user-images.githubusercontent.com/90008551/144952257-2b749a59-a02d-4dae-8d83-8e1557fb2f9b.png)
+ <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952312-b846df92-096c-4571-9496-764ef992277a.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952257-2b749a59-a02d-4dae-8d83-8e1557fb2f9b.png" width="500"/></p>
   
   EXAMPLE 2:
-  ![image](https://user-images.githubusercontent.com/90008551/144952595-1a701c4c-f571-4763-a020-5d9f1077ed3c.png)
-  ![image](https://user-images.githubusercontent.com/90008551/144952558-664df408-84fd-4c7a-bfde-253b0f6f704f.png)
+ <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952595-1a701c4c-f571-4763-a020-5d9f1077ed3c.png" width="500"/></p>
+ <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952558-664df408-84fd-4c7a-bfde-253b0f6f704f.png" width="500"/></p>
 
   EXAMPLE 3:
-![image](https://user-images.githubusercontent.com/90008551/144952959-b4f92dae-32cf-4297-a87f-dfc36adb5e5b.png)
-![image](https://user-images.githubusercontent.com/90008551/144952994-f77182d1-fed3-4e2c-a28d-26de0b01ad2a.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952959-b4f92dae-32cf-4297-a87f-dfc36adb5e5b.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952994-f77182d1-fed3-4e2c-a28d-26de0b01ad2a.png" width="500"/></p>
 
-![image](https://user-images.githubusercontent.com/90008551/144952893-627b81f2-ef5a-4581-a427-91383523d1a0.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952893-627b81f2-ef5a-4581-a427-91383523d1a0.png" width="500"/></p>
 
-  
   
   ShortestPath - Bellman-Ford
 - Returns the shortest path between two locations given their names.
@@ -580,20 +579,20 @@ EXAMPLE 2:
 - Output: Distance of the shortest path
 - Time Complexity: O(MN)
 - EXAMPLE 1 
-  ![image](https://user-images.githubusercontent.com/90008551/144953255-bc1f765e-0c6f-45b9-ab43-74f73daa14dd.png)
-  ![image](https://user-images.githubusercontent.com/90008551/144953222-10af306b-4a62-469c-8c1e-4ccf09594866.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953255-bc1f765e-0c6f-45b9-ab43-74f73daa14dd.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953222-10af306b-4a62-469c-8c1e-4ccf09594866.png" width="500"/></p>
   
   EXAMPLE 2:
-  ![image](https://user-images.githubusercontent.com/90008551/144953350-1aadd326-ba3b-4eb9-a753-5c8896154978.png)
-![image](https://user-images.githubusercontent.com/90008551/144953393-456e01ad-05eb-4d95-9501-6d193e937b68.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953350-1aadd326-ba3b-4eb9-a753-5c8896154978.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953393-456e01ad-05eb-4d95-9501-6d193e937b68.png" width="500"/></p>
 
   EXAMPLE 3:
-![image](https://user-images.githubusercontent.com/90008551/144953811-d71db7ea-9e4f-443c-a50b-e77e6591a3a8.png)
-![image](https://user-images.githubusercontent.com/90008551/144953841-64a54b77-873b-4569-9f89-53e8c6e8bb6b.png)
-![image](https://user-images.githubusercontent.com/90008551/144953871-d77aedff-cc9a-44a6-a348-5593e8336c33.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953811-d71db7ea-9e4f-443c-a50b-e77e6591a3a8.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953841-64a54b77-873b-4569-9f89-53e8c6e8bb6b.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953871-d77aedff-cc9a-44a6-a348-5593e8336c33.png" width="500"/></p>
 
 We observe that Dijkstra implementation is way faster than Bellman-Ford.
-![image](https://user-images.githubusercontent.com/90008551/144954269-39f6a7c3-bc14-4a22-994e-b885b51fdd1c.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144954269-39f6a7c3-bc14-4a22-994e-b885b51fdd1c.png" width="500"/></p>
    
    ## PART 4 : TRAVELING TROJAN
    
@@ -770,6 +769,9 @@ Clearly as the locations increase, the time taken to compute increases as well.
 
 As we can see, there is an increase in the time with respect to k increasing.
 
+## Conclusion
+
+We have implemented Trojan Map application for navigation within the USC campus. We have learnt and utilised various algorithms in this project such as DFS, backing, and learnt a few ways to find the shortest path between two points and the closest neighbors given a particular location. 
 
 
 
