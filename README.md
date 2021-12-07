@@ -632,13 +632,15 @@ Your README file should include two sections:
 
  TIME COMPLEXITY :
  
- I have tried implementing it with more number of locations to see how long does it take:
+ I have tried implementing it with more number of locations to see how long does it take from Ralphs.
  
- Number of Locations	  Time taken (microseconds)
-    3 (Default Case)	           22
-    4		            	           23
-    5	           	           	   25
-    10		           	           55
+  
+| Number of Locations  | Time taken (microseconds) |
+| -------------------- | ------------------------- |
+|   3 (Default Case)	 |           22              |
+|   4		            	 |           23              |
+|   5	           	     |     	     25              |
+|   10		           	 |           55              |
 
 Clearly as the locations increase, the time taken to compute increases as well.
  
@@ -674,12 +676,14 @@ Clearly as the locations increase, the time taken to compute increases as well.
  
  We tried implementing several values of k, for the same Location and found as follows:  
  
- K	Time taken (microseconds)
- 5	    1504
- 10	    1531
- 50	    1540
- 75     1887
- 100	  2200
+ 
+| K   | Time taken (microseconds) |
+| --- | ---- |
+| 5	  | 1504 |
+| 10	| 1531 |
+| 50	| 1540 |
+| 75  | 1887 |
+| 100	| 2200 |
 
 As we can see, there is an increase in the time with respect to k increasing.
 
