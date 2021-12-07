@@ -544,6 +544,7 @@ Your README file should include two sections:
 - Output: Latitude and Longitude of the location
           Plots the location on the map
 - Time Complexity: O(N)
+
 EXAMPLE 1:  
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png" width="500"/></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950586-9c7e33d1-4b8e-48a1-b681-6c75b9255d92.png" width="500"/></p>
@@ -558,6 +559,7 @@ EXAMPLE 2:
 - Input: Names of the two locations
 - Output: List of locations in the shortest path and the distance of the shortest path
 - Time Complexity: O(NlogN)
+
   EXAMPLE 1: 
  <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952312-b846df92-096c-4571-9496-764ef992277a.png" width="500"/></p>
  <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144952257-2b749a59-a02d-4dae-8d83-8e1557fb2f9b.png" width="500"/></p>
@@ -578,7 +580,8 @@ EXAMPLE 2:
 - Input: Names of the two locations
 - Output: Distance of the shortest path
 - Time Complexity: O(MN)
-- EXAMPLE 1 
+
+EXAMPLE 1 
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953255-bc1f765e-0c6f-45b9-ab43-74f73daa14dd.png" width="500"/></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953222-10af306b-4a62-469c-8c1e-4ccf09594866.png" width="500"/></p>
   
