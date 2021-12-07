@@ -537,16 +537,16 @@ Your README file should include two sections:
   TRAVELING TROJAN : BRUTE FORCE APPROACH 
   
   ## EXAMPLE 1:
-   <p align="center"><img src="" width="500"/></p>
-   <p align="center"><img src="" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943454-845eee2d-8baa-4bbe-91aa-63ee002de602.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943478-fd0fba72-d174-4c49-b123-54c338f121ca.png" width="500"/></p>
   
   ## EXAMPLE 2:
-   <p align="center"><img src="" width="500"/></p>
-   <p align="center"><img src="" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943274-9edb1159-4230-4378-bc74-eb57b7397e9c.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943227-095bde93-ae2e-4154-ab5b-85a7b68f68fb.png" width="500"/></p>
   
   ## EXAMPLE 3: 
-   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144939048-6980c4c4-23d6-4e54-9ace-555a01df9467.png" width="500"/></p>
-   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913545-d4961ec2-fa4f-4068-b3c6-8aedca2f0c71.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943274-9edb1159-4230-4378-bc74-eb57b7397e9c.png" width="500"/></p>
+   <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943227-095bde93-ae2e-4154-ab5b-85a7b68f68fb.png" width="500"/></p>
   
   TRAVELING TROJAN : 2 - OPT APPROACH 
   
@@ -564,6 +564,16 @@ Your README file should include two sections:
    
    
    CONCLUSION:
+   | N |	Time taken ( Brute)|	Time taken ( 2 -opt)|
+   |---|----------------------|----------------------|
+|3|	140|	106|
+|5|	332 |	685|
+|7|	15354|	4919|
+|8	|70269|	11214|
+|10|11905422|	50026|
+
+From N values above 10 , the Brute Force takes a much longer while to compile and run . Thus for smaller values of N, Brute Approach works, but beyond that 2-opt works best.
+
    
    ## PART 5 : CYCLE DETECTION
    
