@@ -545,7 +545,7 @@ Your README file should include two sections:
           Plots the location on the map
 - Time Complexity: O(N)
 EXAMPLE 1:  
-<p align="center"><img src="center"><img src="https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png" width="500"/></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950586-9c7e33d1-4b8e-48a1-b681-6c75b9255d92.png" width="500"/></p>
 
 EXAMPLE 2:
@@ -677,8 +677,7 @@ From N values above 10 , the Brute Force takes a much longer while to compile an
  ## EXAMPLE 4 :
  <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144910504-7755d9b5-8e49-4d00-aec8-bb952cbd5b09.png" width="500"/></p>
  
- 
- TIME COMPLEXITY :
+ TIME COMPLEXITY : O(Vertices + Edges)
  
  ## PART 6 : TOPOLOGICAL SORT
  
@@ -712,7 +711,7 @@ From N values above 10 , the Brute Force takes a much longer while to compile an
  <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912305-d659aa16-ddf0-4ca1-ab1c-c968786d8c55.png" width="500"/></p>
  <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144912321-c1d0b244-720c-4a78-b57e-d8df5c83f3f7.png" width="500"/></p>
 
- TIME COMPLEXITY :
+ TIME COMPLEXITY : O(Vertices + Edges)
  
  I have tried implementing it with more number of locations to see how long does it take from Ralphs.
  
@@ -754,7 +753,7 @@ Clearly as the locations increase, the time taken to compute increases as well.
  <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144913545-d4961ec2-fa4f-4068-b3c6-8aedca2f0c71.png" width="500"/></p>
 
  
- TIME COMPLEXITY :
+ TIME COMPLEXITY : O(number of Vertices * log(k))
  
  We tried implementing several values of k, for the same Location and found as follows:  
  
