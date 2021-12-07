@@ -664,6 +664,9 @@ From N values above 10 , the Brute Force takes a much longer while to compile an
   - If the neighbor is in the area + unvisited, hasCycle runs recursively. If the final returns true, the cycle exists.
   - If the neighbor is in the area + visited and it’s not the parent node, the cycle exists. Otherwise cycle does not exist.
 
+ ## NOTE : 
+ For the testing of this function, it works perfectly without the PlotEdges in the trojanmap.cc, but with it the test fails.
+
  ## SAMPLE OUTPUTS : CYCLE DETECTION
  
  ## EXAMPLE 1 :
