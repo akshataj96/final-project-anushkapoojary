@@ -774,7 +774,7 @@ As we can see, there is an increase in the time with respect to k increasing.
 
 ## Conclusion
 
-We have implemented Trojan Map application for navigation within the USC campus. We have learnt and utilised various algorithms in this project such as DFS, backing, and learnt a few ways to find the shortest path between two points and the closest neighbors given a particular location. 
+We have implemented Trojan Map application for navigation within the USC campus. We have learnt and utilised various algorithms in this project such as DFS, backtracking, and learnt a few ways to find the shortest path between two points and the closest neighbors given a particular location. 
 
 
 
