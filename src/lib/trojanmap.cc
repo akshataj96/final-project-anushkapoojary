@@ -1085,47 +1085,47 @@ bool TrojanMap::hasCycle( std::string current_id, std::map<std::string, bool> &v
 return res;
 }
 
-/**
- * FindKClosetPoints: Given a location id and k, find the k closest points on the map
- * 
- * @param {std::string} name: the name of the location
- * @param {int} k: number of closest points
- * @return {std::vector<std::string>}: k closest points
- */
-std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
+// /**
+//  * FindKClosetPoints: Given a location id and k, find the k closest points on the map
+//  * 
+//  * @param {std::string} name: the name of the location
+//  * @param {int} k: number of closest points
+//  * @return {std::vector<std::string>}: k closest points
+//  */
+// std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
    
-   std::vector<std::string> res;
-   double distance_val;
-   std::priority_queue<std::pair <double,std::string>> des_dis ;
+//    std::vector<std::string> res;
+//    double distance_val;
+//    std::priority_queue<std::pair <double,std::string>> des_dis ;
 
-  if(GetID(name)=="" ||k<=0)
-   return res;
+//   if(GetID(name)=="" ||k<=0)
+//    return res;
   
-  //We want to skip any nodes that do not have names, hence the continue function
-  for(auto i=data.begin();i!=data.end();i++){ 
-    distance_val= CalculateDistance((*i).first,GetID(name));
+//   //We want to skip any nodes that do not have names, hence the continue function
+//   for(auto i=data.begin();i!=data.end();i++){ 
+//     distance_val= CalculateDistance((*i).first,GetID(name));
 	  
-    if((*i).first ==GetID(name){
-	    if((*i).second.name.size()==0))
-		 continue;
+//     if((*i).first ==GetID(name){
+// 	    if((*i).second.name.size()==0))
+// 		 continue;
     
-    if (des_dis.size()<k)
+//     if (des_dis.size()<k)
      
-     des_dis.push(std::make_pair(CalculateDistance((*i).first,GetID(name)),(*i).first));
-     else{
+//      des_dis.push(std::make_pair(CalculateDistance((*i).first,GetID(name)),(*i).first));
+//      else{
        
-       while(distance_val<des_dis.top().first){
-         des_dis.push(std::make_pair(diss,(*i).first));
-         des_dis.pop();
+//        while(distance_val<des_dis.top().first){
+//          des_dis.push(std::make_pair(diss,(*i).first));
+//          des_dis.pop();
          
-       }
-     }
-  }
-  while(!des_dis.empty()){
-  res.push_back(des_dis.top().second);
-  des_dis.pop();}
+//        }
+//      }
+//   }
+//   while(!des_dis.empty()){
+//   res.push_back(des_dis.top().second);
+//   des_dis.pop();}
 
-  std::reverse(res.begin(),res.end());
-  return res;
-}
+//   std::reverse(res.begin(),res.end());
+//   return res;
+// }
   
