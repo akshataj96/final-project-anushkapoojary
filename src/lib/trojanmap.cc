@@ -695,8 +695,11 @@ std::vector<std::string> TrojanMap::Autocomplete(std::string name){
  */
 std::pair<double, double> TrojanMap::GetPosition(std::string name) {
   std::pair<double, double> results(-1, -1);
+  std::transform(name.begin(), name.end(), name.begin(), ::tolower);
   for (auto pn : data) { 
-    if (name == pn.second.name) { 
+    std::string name_in_node = pn.second.name;
+    std::transform(name_in_node.begin(), name_in_node.end(), name_in_node.begin(), ::tolower);
+    if (name == name_in_node) { 
       results.first = GetLat(pn.first);
       results.second = GetLon(pn.first);
       break;
