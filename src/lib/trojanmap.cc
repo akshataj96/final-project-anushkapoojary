@@ -1092,48 +1092,6 @@ return res;
  * @param {int} k: number of closest points
  * @return {std::vector<std::string>}: k closest points
  */
-
-bool TrojanMap::SortFunction(const std::pair<std::string,int> &a, const std::pair<std::string,int> &b){
-    return (a.second < b.second);
-    }
-
-
-std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
-   
-   std::vector<std::string> res;
-   std::vector<std::string> des;
-   
-   std::map<double, std::vector<std::string>> dis_des;
-   
-   std::string Source_ID =GetID(name) ;
-   
-   for(auto pres=data.begin(); pres!=data.end(); pres++){
-   	if(pres->first == Source_ID){
-   		break;
-   	}
-   	dis_des[CalculateDistance(Source_ID,pres->first)].push_back(pres->first);
-   }
-   
-   for(auto x=dis_des.begin(); x!=dis_des.end(); x++){
-   	std::cout<<"printttttttt:"<<x->first<<std::endl;
-   	if(res.size()>=k){
-   		break;
-   	}
-   	for(std::string insert_loc: x->second){
-   		if(res.size()>=k){
-   		break;
-   	}
-   		if(data[insert_loc].name != ""){
-   			res.push_back(insert_loc);
-   		}
-  	 }
-   
-    }
-    
-   return res;
-  }
-
-
 std::vector<std::string> TrojanMap::FindKClosestPoints(std::string name, int k) {
    
    std::vector<std::string> res;
