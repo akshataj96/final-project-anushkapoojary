@@ -531,20 +531,79 @@ Your README file should include two sections:
 - Return a list of possible locations with partial name as prefix
 - Input: Partial name prefix of a location on the map
 - Output: List of locations matching the prefix
+- Time Complexity: O(N)
 - EXAMPLE 1:
 ![image](https://user-images.githubusercontent.com/90008551/144950239-e6745639-534c-4968-ab3d-973ac81df5d3.png)
 
   EXAMPLE 2:
   ![image](https://user-images.githubusercontent.com/90008551/144950312-7f3a92af-7393-4570-abf3-6f7d08925761.png)
+
+   ## PART 2 : GetPosition
+- Returns the coordinates of a location in the map
+- Input: Name of the location
+- Output: Latitude and Longitude of the location
+          Plots the location on the map
 - Time Complexity: O(N)
-   ## PART 2 :
-   ## PART 3 : 
-   
+EXAMPLE 1: 
+![image](https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png)
+![image](https://user-images.githubusercontent.com/90008551/144950586-9c7e33d1-4b8e-48a1-b681-6c75b9255d92.png)
+
+EXAMPLE 2:
+![image](https://user-images.githubusercontent.com/90008551/144950683-daaa76c3-bf1f-4ccc-9fff-d3f2575179d7.png)
+![image](https://user-images.githubusercontent.com/90008551/144950697-825db12d-03c2-4e92-a8ce-84edff3eeafc.png)
+
+   ## PART 3 : ShortestPath - Dijkstra
+- Returns the shortest path between two locations given their names.
+- Used priority queue to reduce time complexity from O(N^2) to O(NlogN)
+- Input: Names of the two locations
+- Output: List of locations in the shortest path and the distance of the shortest path
+- Time Complexity: O(NlogN)
+  EXAMPLE 1: 
+  ![image](https://user-images.githubusercontent.com/90008551/144952312-b846df92-096c-4571-9496-764ef992277a.png)
+  ![image](https://user-images.githubusercontent.com/90008551/144952257-2b749a59-a02d-4dae-8d83-8e1557fb2f9b.png)
+  
+  EXAMPLE 2:
+  ![image](https://user-images.githubusercontent.com/90008551/144952595-1a701c4c-f571-4763-a020-5d9f1077ed3c.png)
+  ![image](https://user-images.githubusercontent.com/90008551/144952558-664df408-84fd-4c7a-bfde-253b0f6f704f.png)
+
+  EXAMPLE 3:
+![image](https://user-images.githubusercontent.com/90008551/144952959-b4f92dae-32cf-4297-a87f-dfc36adb5e5b.png)
+![image](https://user-images.githubusercontent.com/90008551/144952994-f77182d1-fed3-4e2c-a28d-26de0b01ad2a.png)
+
+![image](https://user-images.githubusercontent.com/90008551/144952893-627b81f2-ef5a-4581-a427-91383523d1a0.png)
+
+  
+  
+  ShortestPath - Bellman-Ford
+- Returns the shortest path between two locations given their names.
+- Input: Names of the two locations
+- Output: Distance of the shortest path
+- Time Complexity: O(MN)
+- EXAMPLE 1 
+  ![image](https://user-images.githubusercontent.com/90008551/144953255-bc1f765e-0c6f-45b9-ab43-74f73daa14dd.png)
+  ![image](https://user-images.githubusercontent.com/90008551/144953222-10af306b-4a62-469c-8c1e-4ccf09594866.png)
+  
+  EXAMPLE 2:
+  ![image](https://user-images.githubusercontent.com/90008551/144953350-1aadd326-ba3b-4eb9-a753-5c8896154978.png)
+![image](https://user-images.githubusercontent.com/90008551/144953393-456e01ad-05eb-4d95-9501-6d193e937b68.png)
+
+  EXAMPLE 3:
+![image](https://user-images.githubusercontent.com/90008551/144953811-d71db7ea-9e4f-443c-a50b-e77e6591a3a8.png)
+![image](https://user-images.githubusercontent.com/90008551/144953841-64a54b77-873b-4569-9f89-53e8c6e8bb6b.png)
+![image](https://user-images.githubusercontent.com/90008551/144953871-d77aedff-cc9a-44a6-a348-5593e8336c33.png)
+
+We observe that Dijkstra implementation is way faster than Bellman-Ford.
+![image](https://user-images.githubusercontent.com/90008551/144954269-39f6a7c3-bc14-4a22-994e-b885b51fdd1c.png)
    
    ## PART 4 : TRAVELING TROJAN
    
   TRAVELING TROJAN : BRUTE FORCE APPROACH 
-  
+- Returns the shortest route that covers all the locations given in a list exactly once and goes back to the start point
+- Input: Number of locations
+- Output: Distance of the path
+  We assume a complete graph is given i.e.  each node is a neighbor of all other nodes.
+  We permutate through the input number of random locations to find the most optimal path.
+- Time Complexity: O(N!)
   ## EXAMPLE 1:
    <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943454-845eee2d-8baa-4bbe-91aa-63ee002de602.png" width="500"/></p>
    <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943478-fd0fba72-d174-4c49-b123-54c338f121ca.png" width="500"/></p>
@@ -558,6 +617,11 @@ Your README file should include two sections:
    <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144943227-095bde93-ae2e-4154-ab5b-85a7b68f68fb.png" width="500"/></p>
   
   TRAVELING TROJAN : 2 - OPT APPROACH 
+- Returns the shortest route that covers all the locations given in a list exactly once and goes back to the start point
+- Input: Number of locations
+- Output: Distance of the path
+  Works on the principle of choosing 2 arcs from the path, calculating distance, reconnecting the arcs in the path with each other and calculating the new distance. If the new path has shortest distance, we swap the two. This process is repeated to obtain shortest traversal path between the locaitons.
+- Time Complexity: O(N^2)
   
   ## EXAMPLE 1:
    <p align="center"><img src="https://user-images.githubusercontent.com/89548670/144935261-976366f3-de95-4a11-8fdf-1f3ba6df896d.png" width="500"/></p>
