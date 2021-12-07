@@ -533,10 +533,10 @@ Your README file should include two sections:
 - Output: List of locations matching the prefix
 - Time Complexity: O(N)
 - EXAMPLE 1:
-![image](https://user-images.githubusercontent.com/90008551/144950239-e6745639-534c-4968-ab3d-973ac81df5d3.png" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950239-e6745639-534c-4968-ab3d-973ac81df5d3.png" width="500"/></p>
 
   EXAMPLE 2:
-  ![image](https://user-images.githubusercontent.com/90008551/144950312-7f3a92af-7393-4570-abf3-6f7d08925761.png)" width="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950312-7f3a92af-7393-4570-abf3-6f7d08925761.png" width="500"/></p>
 
    ## PART 2 : GetPosition
 - Returns the coordinates of a location in the map
@@ -544,8 +544,8 @@ Your README file should include two sections:
 - Output: Latitude and Longitude of the location
           Plots the location on the map
 - Time Complexity: O(N)
-EXAMPLE 1: 
-<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png" width="500"/></p>
+EXAMPLE 1:  
+<p align="center"><img src="center"><img src="https://user-images.githubusercontent.com/90008551/144950628-bf227ca0-87c4-4e7a-be3f-02f5054663aa.png" width="500"/></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144950586-9c7e33d1-4b8e-48a1-b681-6c75b9255d92.png" width="500"/></p>
 
 EXAMPLE 2:
