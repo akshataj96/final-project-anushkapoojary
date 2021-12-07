@@ -591,8 +591,9 @@ EXAMPLE 2:
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953841-64a54b77-873b-4569-9f89-53e8c6e8bb6b.png" width="500"/></p>
 <p align="center"><img src="https://user-images.githubusercontent.com/90008551/144953871-d77aedff-cc9a-44a6-a348-5593e8336c33.png" width="500"/></p>
 
-We observe that Dijkstra implementation is way faster than Bellman-Ford.
-<p align="center"><img src="https://user-images.githubusercontent.com/90008551/144954269-39f6a7c3-bc14-4a22-994e-b885b51fdd1c.png" width="500"/></p>
+We observe that Dijkstra implementation is way faster than Bellman-Ford. This is seen in the below table depicting run-times.
+![image](https://user-images.githubusercontent.com/90008551/145054000-b48cdd26-2b4f-4053-a9a7-4ac28574190a.png)
+
    
    ## PART 4 : TRAVELING TROJAN
    
