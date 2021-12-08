@@ -1,4 +1,6 @@
-# EE538 Final Project - Fall 2021 - TrojanMap
+# EE538 Final Project - Fall 2021 - TrojanMap 
+  By Anushka Poojary
+     Sai Madhav Vedala
 
 ## Deadline: 
 
