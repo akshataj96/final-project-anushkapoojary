@@ -602,6 +602,7 @@ We observe that Dijkstra implementation is way faster than Bellman-Ford. This is
    
    ## PART 4 : TRAVELING TROJAN
    
+  The video of travelling_trojan is present in the folder "img".
   TRAVELING TROJAN : BRUTE FORCE APPROACH 
 - Returns the shortest route that covers all the locations given in a list exactly once and goes back to the start point
 - Input: Number of locations
